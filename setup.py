@@ -17,4 +17,5 @@ setup(
     description='Simple script for generating json pach file used in Generator script',
     # We will also need a readme eventually (there will be a warning)
     # long_description=open('README.txt').read(),
+    scripts=['patchcreator/patchcreator.py']
 )
