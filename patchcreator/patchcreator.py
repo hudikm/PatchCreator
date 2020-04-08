@@ -11,10 +11,6 @@ from asciitree import LeftAligned
 from asciitree.drawing import BoxStyle, BOX_LIGHT, BOX_BLANK
 from collections import OrderedDict as OD
 
-VERTICAL_CHAR = '│'
-HORIZONTAL_STR = "├──"
-LAST_HORIZONTAL_STR = "└──"
-
 class OutputFormat:
     commitMsgs = None
     commitHash = None
