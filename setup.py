@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
-    name='Measurements',
+    name='PatchCreator',
     url='https://github.com/hudikm/patchcreator',
     author='Martin Hudik',
     author_email='martin.hudik@fri.uniza.sk',
