@@ -6,7 +6,6 @@ import argparse
 import json
 import sys
 import re
-from pprint import pprint
 from asciitree import LeftAligned
 from asciitree.drawing import BoxStyle, BOX_LIGHT, BOX_BLANK
 from collections import OrderedDict as OD
@@ -120,7 +119,7 @@ def main():
                                        , listOfCommitsMsgs[index]
                                        , listOfCommitsHASH[index]
                                        , remoteUrl
-                                       , subprocess.run(["git", "diff", hash+"^!"], capture_output=True)
+                                       , subprocess.run(["git", "diff", "--diff-algorithm=minimal", hash+"^!"], capture_output=True)
                                        .stdout.decode(encoding)
                                        , tree_structure(file_list)))
 
