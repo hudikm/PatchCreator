@@ -79,7 +79,7 @@ def tree_structure(file_list):
 def main():
     cliParser = argparse.ArgumentParser(description='Generate code patch file')
     cliParser.add_argument('gitdir', metavar='gitdir', type=str, nargs=1, help='Location of git repo.')
-    cliParser.add_argument('outfile', nargs='?', type=argparse.FileType('w'), default=sys.stdout)
+    cliParser.add_argument('outfile', nargs='?', type=argparse.FileType('wb'), default=sys.stdout)
     # cliParser.add_argument('outfile', metavar='outfile', type=str, nargs=1, help='Output file')
     # cliParser.add_argument('-d', '--diff_file', metavar='diff_file', type=str, nargs='?', help='Git diff file/url')
     cliParser.add_argument('-e', '--encoding', metavar='encoding', type=str, nargs='?', help='Encodning', default='UTF-8')
@@ -119,14 +119,17 @@ def main():
                                        , listOfCommitsMsgs[index]
                                        , listOfCommitsHASH[index]
                                        , remoteUrl
-                                       , subprocess.run(["git", "diff", "--diff-algorithm=minimal", hash+"^!"], capture_output=True)
+                                       , subprocess.run(["git", "diff", "--histogram", hash+"^!"], capture_output=True)
                                        .stdout.decode(encoding)
                                        , tree_structure(file_list)))
 
-    json.dump(outputDiff, default=lambda a: a.__dict__, indent=4, fp=args.outfile, ensure_ascii=False)
-    # jsontxt = json.dumps(outputDiff, default=lambda a: a.__dict__, indent=4, ensure_ascii=False)
+    #json.dump(outputDiff, default=lambda a: a.__dict__, indent=4, fp=args.outfile, ensure_ascii=False)
+    jsontxt = json.dumps(outputDiff, default=lambda a: a.__dict__, indent=4, ensure_ascii=False).encode("UTF-8")
     # obj = json.loads(jsontxt,encoding=encoding)
-
+    # print(obj)
+    args.outfile.write(jsontxt)
+    args.outfile.close()
+    return
 
 if __name__ == "__main__":
     main()

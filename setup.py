@@ -11,7 +11,7 @@ setup(
     # Needed for dependencies
     install_requires=['asciitree'],
     # *strongly* suggested for sharing
-    version='0.1',
+    version='0.2',
     # The license can be anything you like
     license='MIT',
     description='Simple script for generating json pach file used in Generator script',
