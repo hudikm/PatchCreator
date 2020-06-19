@@ -55,7 +55,7 @@ tutGen.py index.md
 Result: 
 ```
 <!--tgen file='out.patch' lang=java tabs t_new="New" t_old="Old" -->
-<!--tgen step=all template='gen_tags_separate_header'  -->
+
 <!--tgen step=1.0 template='mkdocs_header_only'  -->
 <!--end-->
 
@@ -76,7 +76,6 @@ Result:
 <!--tgen step=2.2 template='mkdocs_body_only'  -->
 <!--end-->
 
-<!--end-->
 
 ```
 
