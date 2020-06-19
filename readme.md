@@ -79,7 +79,7 @@ Result:
 
 ```
 
-Run the command `tutGen.py index.md` again that now will generate code snippets.  
+Run the command `tutGen.py index.md` again. Now it will generate a code snippets in specific placeholders.  
 
 
 ## Install  
